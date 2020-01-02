@@ -36,9 +36,10 @@ if args.cookie:
 
 
 def search_variations(url):
-    base, fullname = split_file(url)
-    for variation in template.variations(fullname):
-        test_url(base + '/' + variation, session, args.verbose)
+    if len(url) > 0:
+        base, fullname = split_file(url)
+        for variation in template.variations(fullname, args.verbose):
+            test_url(base + '/' + variation, session, args.verbose)
 
 
 if args.urls_file:
