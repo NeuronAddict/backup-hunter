@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from url_extract import split_file
+from backuphunter.url_extract import split_file
 
 
 class Test(TestCase):

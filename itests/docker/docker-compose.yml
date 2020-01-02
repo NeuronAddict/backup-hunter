@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+  httpd:
+    image: httpd
+    volumes:
+    - ./www:/var/www/html
+    ports:
+    - 80:8000

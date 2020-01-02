@@ -5,9 +5,9 @@ import sys
 
 import requests
 
-from template import Template
-from url_extract import split_file
-from url_test import test_url
+from backuphunter.template import Template
+from backuphunter.url_extract import split_file
+from backuphunter.url_test import test_url
 
 parser = argparse.ArgumentParser('Find backup files on web application.\n'
                                  'Help, bugs, questions, say hello : https://github.com/NeuronAddict/backup-hunter.')
@@ -24,7 +24,7 @@ args = parser.parse_args()
 if args.template:
     template = Template(args.template)
 else:
-    template = Template('template.txt')
+    template = Template('../backuphunter/template.txt')
 
 
 session = requests.session()
