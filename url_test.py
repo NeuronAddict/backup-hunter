@@ -1,5 +1,6 @@
 from termcolor import colored
 
+
 def test_url(url, session, verbose):
     if verbose:
         print('[*] try url {}'.format(url))

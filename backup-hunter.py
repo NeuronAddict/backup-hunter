@@ -1,11 +1,9 @@
 #! /usr/bin/env python3
 
 import argparse
-import os
 import sys
 
 import requests
-from urllib.parse import urlparse
 
 from template import Template
 from url_extract import split_file
@@ -49,8 +47,8 @@ if args.urls_file:
             search_variations(url)
     else:
         with open(args.urls_file) as file:
-            for url in file:
-                search_variations(url)
+            for line in file:
+                search_variations(line)
 else:
     if args.url:
         search_variations(args.url)
