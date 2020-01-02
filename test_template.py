@@ -24,4 +24,5 @@ class TestTemplate(TestCase):
         template = Template('template.txt')
         self.assertEqual('myfile.php.bak', template.variation('myfile', 'php', 'myfile.php', '{fullname}.bak'))
         self.assertEqual('myfile.bak', template.variation('myfile', 'php', 'myfile.php', '{filename}.bak'))
-        self.assertEqual('myfile-bak.php', template.variation('myfile', 'php', 'myfile.php', '{filename}-bak.{extension}'))
+        self.assertEqual('myfile-bak.php', template.variation('myfile', 'php', 'myfile.php',
+                                                              '{filename}-bak.{extension}'))
