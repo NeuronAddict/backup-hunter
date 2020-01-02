@@ -44,11 +44,11 @@ def search_variations(url):
 if args.urls_file:
     if args.urls_file == '-':
         for url in sys.stdin:
-            search_variations(url)
+            search_variations(url.rstrip())
     else:
         with open(args.urls_file) as file:
             for line in file:
-                search_variations(line)
+                search_variations(line.rstrip())
 else:
     if args.url:
         search_variations(args.url)
