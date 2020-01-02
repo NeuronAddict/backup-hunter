@@ -8,6 +8,8 @@ import requests
 from urllib.parse import urlparse
 
 from template import Template
+from url_extract import split_file
+from url_test import test_url
 
 parser = argparse.ArgumentParser('Find backup files on web application.\n'
                                  'Help, bugs, questions, say hello : https://github.com/NeuronAddict/backup-hunter.')
@@ -36,28 +38,9 @@ if args.cookie:
 
 
 def search_variations(url):
-    index = url.rfind('/')
-    base = url[:index]
-    fullname = url[index+1:]
-
+    base, fullname = split_file(url)
     for variation in template.variations(fullname):
-        test(base + '/' + variation)
-
-def test(url):
-    if args.verbose:
-        print('[*] try url {}'.format(url))
-    r = session.head(url, verify=False)
-    if r.status_code == 200:
-        print('[+] found accessible file : {} ({})'.format(url, r.status_code))
-    else:
-        if r.status_code < 400:
-            print('[+] found a response for file {} ({})'.format(url, r.status_code))
-        else:
-            if r.status_code >= 500:
-                print('[*] Error for file {} ({})'.format(url, r.status_code))
-            else:
-                if args.verbose:
-                    print('[-] nothing for {} ({})'.format(url, r.status_code))
+        test_url(base + '/' + variation, session, args.verbose)
 
 
 if args.urls_file:
