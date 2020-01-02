@@ -1,0 +1,57 @@
+# This file contains all the variations of the filename to search backup file.
+# {filename}: filename without extension
+# {extension}: last extension withour point (ie: will be 'php' for file.class.php )
+# {fullname} : the original name
+# examples for myfile.class.php :
+# '{fullname}.bk' -> 'myfile.class.php.bk'
+# '{filename}-bk.{extension}' -> 'myfile.class-bk.php'
+
+
+{fullname}.bk
+{filename}.bk
+{filename}-bk.{extension}
+
+{fullname}.bak
+{filename}.bak
+{filename}-bak.{extension}
+
+{fullname}-bak
+{filename}-bak
+{fullname}_bak
+{filename}_bak
+
+{fullname}.old
+{filename}.old
+{filename}-old.{extension}
+
+{fullname}.orig
+{filename}.orig
+
+{fullname}.original
+{filename}.original
+
+{fullname}.save
+{filename}.save
+
+{fullname}.swo
+{filename}.swo
+
+{fullname}.txt
+{filename}.txt
+
+{fullname}.tar
+{filename}.tar
+
+{fullname}.zip
+{filename}.zip
+
+{fullname}.0
+{filename}.0
+{fullname}.1
+{filename}.1
+
+{fullname}~
+
+.{fullname}.swp
+
+

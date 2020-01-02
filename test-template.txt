@@ -1,0 +1,8 @@
+# comment
+# another line
+
+{fullname}.bak
+{filename}.bak
+{filename}-bak.{extension}
+
+# another line
