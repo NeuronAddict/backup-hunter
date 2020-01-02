@@ -11,12 +11,14 @@ class Template(object):
                 if self.is_code(line):
                     self.lines.append(line)
 
-    def variations(self, fullname):
+    def variations(self, fullname, verbose=False):
         ret = []
         filename, extension = os.path.splitext(fullname)
         if len(extension) > 0 and extension[0] == '.':
             extension = extension[1:]
         for line in self.lines:
+            if verbose:
+                print('[*] {} -> {},{} against {}'.format(fullname, filename, extension, line))
             ret.append(self.variation(filename, extension, fullname, line))
         return ret
 
