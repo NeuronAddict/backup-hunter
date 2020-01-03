@@ -1,3 +1,4 @@
+import os
 import sys
 
 import requests
@@ -61,5 +62,6 @@ def get_template(args):
     if args.template:
         template = Template(args.template)
     else:
-        template = Template('../backuphunter/template.txt')
+        dir = os.path.dirname(__file__)
+        template = Template(os.path.join(dir, 'template.txt'))
     return template
