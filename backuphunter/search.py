@@ -4,7 +4,7 @@ import requests
 
 from backuphunter.template import Template
 from backuphunter.url_extract import split_file
-from backuphunter.url_test import test_url
+from backuphunter.url_test import check_url
 
 
 def search_variations(url, session, template, verbose):
@@ -13,7 +13,7 @@ def search_variations(url, session, template, verbose):
         base, fullname = split_file(url)
         for variation in template.variations(fullname, verbose):
             to_test = base + '/' + variation
-            if test_url(to_test, session, verbose):
+            if check_url(to_test, session, verbose):
                 found.append(to_test)
     return found
 
