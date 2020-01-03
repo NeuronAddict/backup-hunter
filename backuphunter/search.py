@@ -20,17 +20,8 @@ def search_variations(url, session, template, verbose):
 
 def search(args):
 
-    if args.template:
-        template = Template(args.template)
-    else:
-        template = Template('../backuphunter/template.txt')
-
-    session = requests.session()
-    if args.proxy:
-        session.proxies = {'http': args.proxy, 'https': args.proxy}
-    if args.cookie:
-        session.headers = {'Cookie': args.cookie,
-                           'User-Agent': 'Backup Hunter https://github.com/NeuronAddict/backup-hunter'}
+    template = get_template(args)
+    session = get_session(args)
 
     found = []
     if args.urls_file:
@@ -51,3 +42,21 @@ def search(args):
         else:
             print('[-] You should use at least --url or --urls_file.')
     return found
+
+
+def get_session(args):
+    session = requests.session()
+    if args.proxy:
+        session.proxies = {'http': args.proxy, 'https': args.proxy}
+    if args.cookie:
+        session.headers = {'Cookie': args.cookie}
+    session.headers['User-Agent'] = 'Backup Hunter https://github.com/NeuronAddict/backup-hunter'
+    return session
+
+
+def get_template(args):
+    if args.template:
+        template = Template(args.template)
+    else:
+        template = Template('../backuphunter/template.txt')
+    return template

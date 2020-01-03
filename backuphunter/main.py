@@ -1,5 +1,7 @@
 import argparse
 
+import requests
+
 from backuphunter.search import search
 
 
@@ -17,5 +19,12 @@ def main():
     parser.add_argument('--template', help='Override the template file')
 
     args = parser.parse_args()
-
-    search(args)
+    try:
+        search(args)
+        return 0
+    except requests.exceptions.ConnectionError as e:
+        print(e)
+        return 1
+    except Exception as e:
+        print(e)
+        return 2
