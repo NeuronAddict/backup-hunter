@@ -14,6 +14,7 @@
 {fullname}.bak
 {filename}.bak
 {filename}-bak.{extension}
+{filename}.bak.{extension}
 
 {fullname}-bak
 {filename}-bak
