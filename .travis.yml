@@ -11,7 +11,7 @@ install:
 before_script:
   - docker-compose -f itests/docker/docker-compose.yml up --build -d
 script:
-    - sleep 10 && pytest
+    - sleep 10 && cd tests && pytest && cd ../itests && pytest
 after_script:
   - docker-compose -f itests/docker/docker-compose.yml down
 after_success:
