@@ -8,4 +8,5 @@ setup(name='backup-hunter',
       author_email='',
       license='Apache 2.0',
       packages=['backuphunter'],
+      package_data={'backuphunter': ['template.txt']},
       zip_safe=False, install_requires=['requests', 'argparse', 'termcolor'])
