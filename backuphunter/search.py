@@ -62,6 +62,6 @@ def get_template(args):
     if args.template:
         template = Template(args.template)
     else:
-        dir = os.path.dirname(__file__)
-        template = Template(os.path.join(dir, 'template.txt'))
+        package_dir = os.path.dirname(__file__)
+        template = Template(os.path.join(package_dir, 'template.txt'))
     return template
