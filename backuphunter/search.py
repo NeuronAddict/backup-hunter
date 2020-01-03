@@ -50,7 +50,10 @@ def get_session(args):
         session.proxies = {'http': args.proxy, 'https': args.proxy}
     if args.cookie:
         session.headers = {'Cookie': args.cookie}
-    session.headers['User-Agent'] = 'Backup Hunter https://github.com/NeuronAddict/backup-hunter'
+    if args.user_agent:
+        session.headers['User-Agent'] = args.user_agent
+    else:
+        session.headers['User-Agent'] = 'Backup Hunter https://github.com/NeuronAddict/backup-hunter'
     return session
 
 
