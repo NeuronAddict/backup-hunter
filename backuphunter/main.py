@@ -5,8 +5,10 @@ from backuphunter.search import search
 
 
 def main():
-    parser = argparse.ArgumentParser(description='Find backup files on web application.',
-                                     epilog='Help, bugs, questions, say hello : '
+    parser = argparse.ArgumentParser(description='Find backup files on web application.\n'
+                                     'For each URL, search variations for backup files.\n'
+                                     'Example : for index.php, search index.php~,index.php.bak, index.bak...',
+                                     epilog='Bugs, questions, say hello : '
                                      'https://github.com/NeuronAddict/backup-hunter.')
     parser.add_argument('--url', help='URL of a file to search backup.')
     parser.add_argument('--urls_file',
