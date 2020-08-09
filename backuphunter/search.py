@@ -3,9 +3,9 @@ import sys
 
 import requests
 
-from backuphunter.template import Template
-from backuphunter.url_extract import split_file
-from backuphunter.url_test import check_url
+from .template import Template
+from .url_extract import split_file
+from .url_test import check_url
 
 
 def search_variations(url, session, template, verbose):
